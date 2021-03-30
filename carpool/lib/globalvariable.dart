@@ -1,1 +1,1 @@
-String map_key = 'AIzaSyCvsxvlCkhA_X4L6BdDA1RO1X6ng-M8Nts';
+String mapKey = 'AIzaSyCvsxvlCkhA_X4L6BdDA1RO1X6ng-M8Nts';

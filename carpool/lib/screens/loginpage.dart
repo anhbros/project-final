@@ -83,14 +83,14 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.center,
                   height: 100.0,
                   width: 100.0,
-                  image: AssetImage('images/carpool.png'),
+                  image: AssetImage('images/carpool.jpg'),
                 ),
 
                 SizedBox(height: 40,),
 
-                Text('Sign In if you a Rider',
+                Text('Ứng dụng cho Hành Khách',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25, fontFamily: 'Brand-Bold'),
+                  style: TextStyle(fontSize: 25, fontFamily: 'Lexend-Bold'),
                 ),
 
                 Padding(
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                            labelText: 'Email address',
+                            labelText: 'Email',
                             labelStyle: TextStyle(
                               fontSize: 14.0,
                             ),
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 40,),
 
                       TaxiButton(
-                        title: 'LOGIN',
+                        title: 'Đăng Nhập',
                         color: BrandColors.colorGreen,
                         onPressed: () async {
 
@@ -143,17 +143,17 @@ class _LoginPageState extends State<LoginPage> {
 
                           var connectivityResult = await Connectivity().checkConnectivity();
                           if(connectivityResult != ConnectivityResult.mobile && connectivityResult != ConnectivityResult.wifi){
-                            showSnackBar('No internet connectivity');
+                            showSnackBar('Không có kết nối internet');
                             return;
                           }
 
                           if(!emailController.text.contains('@')){
-                            showSnackBar('Please enter a valid email address');
+                            showSnackBar('Vui lòng nhập đúng định dạng mail');
                             return;
                           }
 
                           if(passwordController.text.length < 8){
-                            showSnackBar('Please enter a valid password');
+                            showSnackBar('Vui lòng không bỏ trống password');
                             return;
                           }
 
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                       //route to register
                       Navigator.pushNamedAndRemoveUntil(context, RegistrationPage.id, (route) => false);
                     },
-                    child: Text('Don\'t have an account, sign up here')
+                    child: Text('Nếu bạn chưa có tài khoản, vui lòng tạo tại đây')
                 ),
 
 

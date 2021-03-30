@@ -101,9 +101,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                 SizedBox(height: 40,),
 
-                Text('Create a Rider\'s Account',
+                Text('Tạo tài khoản để sử dụng',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25, fontFamily: 'Brand-Bold'),
+                  style: TextStyle(fontSize: 25, fontFamily: 'Lexend-Bold'),
                 ),
 
                 Padding(
@@ -189,7 +189,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       SizedBox(height: 40,),
 
                       TaxiButton(
-                        title: 'REGISTER',
+                        title: 'Đăng Ký',
                         color: BrandColors.colorGreen,
                         onPressed: () async{
 
@@ -197,28 +197,28 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
                           var connectivityResult = await Connectivity().checkConnectivity();
                           if(connectivityResult != ConnectivityResult.mobile && connectivityResult != ConnectivityResult.wifi){
-                            showSnackBar('No internet connectivity');
+                            showSnackBar('Không có kết nôi internet');
                             return;
                           }
 
                           //validate basic
                           if(fullNameController.text.length < 3){
-                            showSnackBar('Please provide a valid fullname');
+                            showSnackBar('Vui lòng nhập đúng định dạng tên');
                             return;
                           }
 
                           if(phoneController.text.length < 10){
-                            showSnackBar('Please provide a valid phone number');
+                            showSnackBar('Vui lòng nhập đúng định dạng số điện thoại');
                             return;
                           }
 
                           if(!emailController.text.contains('@')){
-                            showSnackBar('Please provide a valid email address');
+                            showSnackBar('Vui lòng nhập đúng định dạng email');
                             return;
                           }
 
                           if(passwordController.text.length < 8){
-                            showSnackBar('password must be at least 8 characters');
+                            showSnackBar('Mật khẩu có độ dài không được nhỏ hơn 8 ký tự');
                             return;
                           }
 
@@ -235,7 +235,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     onPressed: (){
                       Navigator.pushNamedAndRemoveUntil(context, LoginPage.id, (route) => false);
                     },
-                    child: Text('Already have a RIDER account? Log in')
+                    child: Text('Nếu bạn đã có tài khoản? Đăng nhập')
                 ),
 
 

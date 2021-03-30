@@ -22,7 +22,7 @@ class TaxiButton extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStyle(fontSize: 18, fontFamily: 'Brand-Bold'),
+            style: TextStyle(fontSize: 18, fontFamily: 'Lexend-Bold'),
           ),
         ),
       ),

@@ -79,6 +79,13 @@ flutter:
     - family: Brand-Regular
       fonts:
         - asset: fonts/bolt-regular.ttf
+    - family: Lexend-Regular
+      fonts:
+        - asset: fonts/Lexend-Regular.ttf
+    - family: Lexend-Bold
+      fonts:
+        - asset: fonts/Lexend-Bold.ttf
+
 
   #
   # For details regarding fonts from package dependencies,

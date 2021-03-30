@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:carpool/dataprovider/AppData.dart';
 import 'package:carpool/screens/loginpage.dart';
 import 'package:carpool/screens/mainpage.dart';
 import 'package:carpool/screens/registrationpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 
@@ -13,6 +15,7 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final FirebaseApp app = await FirebaseApp.configure(
+
     name: 'db2',
     options: Platform.isIOS
         ? const FirebaseOptions(
@@ -37,18 +40,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'Brand-Regular',
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => AppData(),
+      child: MaterialApp(
+        title: 'Carpool',
+        theme: ThemeData(
+          fontFamily: 'Lexend-Regular',
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute : MainPage.id,
+        routes: {
+          LoginPage.id : (Context) => LoginPage(),
+          RegistrationPage.id :(Context) => RegistrationPage(),
+          MainPage.id : (Context) => MainPage()
+        },
       ),
-      initialRoute : MainPage.id,
-      routes: {
-        LoginPage.id : (Context) => LoginPage(),
-        RegistrationPage.id :(Context) => RegistrationPage(),
-        MainPage.id : (Context) => MainPage()
-      },
     );
   }
 }
