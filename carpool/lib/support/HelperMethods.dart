@@ -15,7 +15,7 @@ class HelperMethods {
       return placeAddress;
     }
 
-    String url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.longitude}&key=$mapKey';
+    String url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.longitude}&key=$geoCodeKey';
 
     var response = await RequestHelper.getRequest(url);
 

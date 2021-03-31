@@ -37,13 +37,14 @@ class _MainPageState extends State<MainPage> {
 
 
     String address = await HelperMethods.findCordinateAddress(position, context);
+    print(address);
   }
 
   double mapBottomPadding = 0;
   bool drawerCanOpen = true;
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(21.0344688, 105.7789208),
     zoom: 14.4746,
   );
 
