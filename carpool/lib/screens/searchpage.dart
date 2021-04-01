@@ -18,23 +18,14 @@ class _SearchPageState extends State<SearchPage> {
   var pickupController = TextEditingController();
   var destinationController = TextEditingController();
 
-  var focusPickUpLocation = FocusNode();
   var focusDestination = FocusNode();
 
-  bool focusedPickUp = false;
   bool focused = false;
 
   void setFocus(){
     if(!focused){
       FocusScope.of(context).requestFocus(focusDestination);
       focused = true;
-    }
-  }
-
-  void setFocusPickUp(){
-    if(!focusedPickUp){
-      FocusScope.of(context).requestFocus(focusPickUpLocation);
-      focusedPickUp = true;
     }
   }
 
@@ -131,10 +122,10 @@ class _SearchPageState extends State<SearchPage> {
                           child: Padding(
                             padding:  EdgeInsets.all(2.0),
                             child: TextField(
-                              onChanged: (value){
-                                searchPlace(value);
-                              },
-                              focusNode: focusPickUpLocation,
+                              // onChanged: (value){
+                              //   searchPlace(value);
+                              // },
+                              //focusNode: focusPickUpLocation,
                               controller: pickupController,
                               decoration: InputDecoration(
                                   hintText: 'Địa điểm đón',
