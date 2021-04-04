@@ -1,15 +1,35 @@
 import 'package:carpool/datamodels/Address.dart';
 import 'package:carpool/datamodels/DirectionDetails.dart';
+import 'package:carpool/datamodels/User.dart';
 import 'package:carpool/dataprovider/AppData.dart';
 import 'package:carpool/globalvariable.dart';
 import 'package:carpool/support/RequestHelper.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:carpool/globalvariable.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 class HelperMethods {
+
+  static void getCurrentUserInfo() async{
+
+    currentFirebaseUser = await FirebaseAuth.instance.currentUser();
+    String userId = currentFirebaseUser.uid;
+
+    DatabaseReference userRef = FirebaseDatabase.instance.reference().child('users/$userId');
+    userRef.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null){
+        currentUserInfo = User.fromSnapshot(snapshot);
+        print('Rider : ${currentUserInfo.fullName}');
+      }
+
+    });
+  }
+
   //get location by coordinate
   static Future<String> findCordinateAddress(Position position , context) async{
     String placeAddress = '';

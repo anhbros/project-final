@@ -1,3 +1,5 @@
+import 'package:carpool/datamodels/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 String mapKey = 'AIzaSyCvsxvlCkhA_X4L6BdDA1RO1X6ng-M8Nts';
@@ -7,3 +9,6 @@ final CameraPosition googlePlex = CameraPosition(
   target: LatLng(21.0347636, 105.7786071),
   zoom: 14.4746,
 );
+
+FirebaseUser currentFirebaseUser;
+User currentUserInfo;

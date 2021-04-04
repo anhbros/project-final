@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Lexend-Regular',
           primarySwatch: Colors.blue,
         ),
-        initialRoute : MainPage.id,
+        initialRoute : LoginPage.id,
         routes: {
           LoginPage.id : (Context) => LoginPage(),
           RegistrationPage.id :(Context) => RegistrationPage(),

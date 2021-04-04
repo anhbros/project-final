@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (BuildContext context) => ProgressDialog(status: 'Logging you in',),
+      builder: (BuildContext context) => ProgressDialog(status: 'Đang đăng nhập',),
     );
 
     final FirebaseUser user = (await _auth.signInWithEmailAndPassword(

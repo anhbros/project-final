@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b502aa3b-f62a-443e-907f-d4fed80b8964" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/mainpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../driver-carpool/New Text Document.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1qhQokWApmy3nyK6H7PLh8SV9kY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\carpool-flutter\carpool_driver\android\app" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b502aa3b-f62a-443e-907f-d4fed80b8964" name="Default Changelist" comment="" />
+      <created>1617529519528</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617529519528</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="99" key="SettingsEditor" timestamp="1617532324305">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1617532324305" />
+    <state x="666" y="258" width="587" height="534" key="find.popup" timestamp="1617532388828">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="666" y="258" width="587" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617532388828" />
+  </component>
+</project>
