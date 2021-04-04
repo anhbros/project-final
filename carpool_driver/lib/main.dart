@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
 
-          fontFamily: 'Brand-Regular',
+          fontFamily: 'Lexend-Regular',
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

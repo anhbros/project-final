@@ -169,10 +169,10 @@ class NotificationDialog extends StatelessWidget {
         Toast.show("Chuyến đi đã bị hủy", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       }
       else if(thisRideID == 'timeout'){
-        Toast.show("Ride has timed out", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+        Toast.show("Thời giam chờ chuyến hết hạn", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       }
       else{
-        Toast.show("Ride not found", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+        Toast.show("Không tìm thấy chuyến đi", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       }
 
     });

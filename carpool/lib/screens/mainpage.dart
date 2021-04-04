@@ -3,15 +3,20 @@ import 'dart:io';
 
 import 'package:carpool/brand_colors.dart';
 import 'package:carpool/datamodels/DirectionDetails.dart';
+import 'package:carpool/datamodels/NearbyDriver.dart';
 import 'package:carpool/dataprovider/AppData.dart';
+import 'package:carpool/rideVariable.dart';
 import 'package:carpool/screens/searchpage.dart';
+import 'package:carpool/support/FireHelper.dart';
 import 'package:carpool/support/HelperMethods.dart';
 import 'package:carpool/widgets/BrandDivider.dart';
+import 'package:carpool/widgets/NoDriverDialog.dart';
 import 'package:carpool/widgets/ProgressDialog.dart';
 import 'package:carpool/widgets/TaxiButton.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_geofire/flutter_geofire.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
@@ -45,8 +50,18 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   Set<Marker> _Markers = {};
   Set<Circle> _Circles = {};
 
+  BitmapDescriptor nearbyIcon;
+
+
   var geoLocator = Geolocator();
   Position currentPosition;
+
+  String appState = 'NORMAL';
+
+  List<NearbyDriver> availableDrivers;
+
+  bool nearbyDriversKeysLoaded = false;
+
 
   DirectionDetails tripDirectionDetails;
   bool drawerCanOpen = true;
@@ -66,6 +81,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
     String address = await HelperMethods.findCordinateAddress(position, context);
     print(address);
+
+    startGeofireListener();
   }
 
   //show detail box under map
@@ -98,6 +115,20 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   double mapBottomPadding = 0;
 
 
+  void createMarker(){
+    if(nearbyIcon == null){
+
+      ImageConfiguration imageConfiguration = createLocalImageConfiguration(context, size: Size(2,2));
+      BitmapDescriptor.fromAssetImage(
+          imageConfiguration, (Platform.isIOS)
+          ? 'images/car_ios.png'
+          : 'images/car_android.png'
+      ).then((icon){
+        nearbyIcon = icon;
+      });
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -108,7 +139,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-
+    createMarker();
 
     return Scaffold(
       key: scaffoldKey,
@@ -436,12 +467,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                             color: BrandColors.colorGreen,
                             onPressed: (){
 
-                              // setState(() {
-                              //   appState = 'REQUESTING';
-                              // });
+                              setState(() {
+                                appState = 'REQUESTING';
+                              });
                                showRequestingSheet();
                               //
-                              // availableDrivers = FireHelper.nearbyDriverList;
+                               availableDrivers = FireHelper.nearbyDriverList;
                               //
                               // findDriver();
 
@@ -670,6 +701,81 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
     });
   }
 
+  void startGeofireListener() {
+
+    //search nearby 20km
+    Geofire.initialize('driversAvailable');
+    Geofire.queryAtLocation(currentPosition.latitude, currentPosition.longitude, 20).listen((map) {
+
+      if (map != null) {
+        var callBack = map['callBack'];
+
+        switch (callBack) {
+          case Geofire.onKeyEntered:
+
+            NearbyDriver nearbyDriver = NearbyDriver();
+            nearbyDriver.key = map['key'];
+            nearbyDriver.latitude = map['latitude'];
+            nearbyDriver.longitude = map['longitude'];
+            FireHelper.nearbyDriverList.add(nearbyDriver);
+
+            if(nearbyDriversKeysLoaded){
+              updateDriversOnMap();
+            }
+            break;
+
+          case Geofire.onKeyExited:
+            FireHelper.removeFromList(map['key']);
+            updateDriversOnMap();
+            break;
+
+          case Geofire.onKeyMoved:
+          // Update your key's location
+
+            NearbyDriver nearbyDriver = NearbyDriver();
+            nearbyDriver.key = map['key'];
+            nearbyDriver.latitude = map['latitude'];
+            nearbyDriver.longitude = map['longitude'];
+
+            FireHelper.updateNearbyLocation(nearbyDriver);
+            updateDriversOnMap();
+            break;
+
+          case Geofire.onGeoQueryReady:
+
+            nearbyDriversKeysLoaded = true;
+            updateDriversOnMap();
+            break;
+        }
+      }
+    });
+  }
+  void updateDriversOnMap(){
+    setState(() {
+      _Markers.clear();
+    });
+
+    Set<Marker> tempMarkers = Set<Marker>();
+
+    for (NearbyDriver driver in FireHelper.nearbyDriverList){
+
+      LatLng driverPosition = LatLng(driver.latitude, driver.longitude);
+      Marker thisMarker = Marker(
+        markerId: MarkerId('driver${driver.key}'),
+        position: driverPosition,
+        icon: nearbyIcon,
+        rotation: HelperMethods.generateRandomNumber(360),
+      );
+
+      tempMarkers.add(thisMarker);
+    }
+
+    setState(() {
+      _Markers = tempMarkers;
+    });
+
+  }
+
   void createRideRequest() {
     rideRef = FirebaseDatabase.instance.reference().child('rideRequest').push();
     var pickup = Provider.of<AppData>(context, listen: false).pickupAddress;
@@ -704,9 +810,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   void cancelRequest(){
     rideRef.remove();
 
-    // setState(() {
-    //   appState = 'NORMAL';
-    // });
+    setState(() {
+      appState = 'NORMAL';
+    });
   }
 
   resetApp(){
@@ -733,6 +839,103 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
     });
 
     setupPositionLocator();
+
+  }
+
+  void noDriverFound(){
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => NoDriverDialog()
+    );
+  }
+
+
+  void findDriver (){
+
+    if(availableDrivers.length == 0){
+      cancelRequest();
+      resetApp();
+      noDriverFound();
+      return;
+    }
+
+    var driver = availableDrivers[0];
+
+    notifyDriver(driver);
+
+    availableDrivers.removeAt(0);
+
+    print(driver.key);
+
+  }
+
+  void notifyDriver(NearbyDriver driver){
+
+    DatabaseReference driverTripRef = FirebaseDatabase.instance.reference().child('drivers/${driver.key}/newtrip');
+    driverTripRef.set(rideRef.key);
+
+    // Get and notify driver using token
+    DatabaseReference tokenRef = FirebaseDatabase.instance.reference().child('drivers/${driver.key}/token');
+
+    tokenRef.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null){
+
+        String token = snapshot.value.toString();
+
+        // send notification to selected driver
+        HelperMethods.sendNotification(token, context, rideRef.key);
+      }
+      else{
+
+        return;
+      }
+
+      const oneSecTick = Duration(seconds: 1);
+
+      var timer = Timer.periodic(oneSecTick, (timer) {
+
+        // stop timer when ride request is cancelled;
+        if(appState != 'REQUESTING'){
+          driverTripRef.set('cancelled');
+          driverTripRef.onDisconnect();
+          timer.cancel();
+          driverRequestTimeout = 30;
+        }
+
+
+        driverRequestTimeout --;
+
+        // a value event listener for driver accepting trip request
+        driverTripRef.onValue.listen((event) {
+
+          // confirms that driver has clicked accepted for the new trip request
+          if(event.snapshot.value.toString() == 'accepted'){
+            driverTripRef.onDisconnect();
+            timer.cancel();
+            driverRequestTimeout = 30;
+          }
+        });
+
+
+        if(driverRequestTimeout == 0){
+
+          //informs driver that ride has timed out
+          driverTripRef.set('timeout');
+          driverTripRef.onDisconnect();
+          driverRequestTimeout = 30;
+          timer.cancel();
+
+          //select the next closest driver
+          findDriver();
+        }
+
+
+      });
+
+
+    });
 
   }
 }

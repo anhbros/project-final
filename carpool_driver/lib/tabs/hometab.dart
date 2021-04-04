@@ -29,7 +29,7 @@ class _HomeTabState extends State<HomeTab> {
   var geoLocator = Geolocator();
   var locationOptions = LocationOptions(accuracy: LocationAccuracy.bestForNavigation, distanceFilter: 4);
 
-  String availabilityTitle = 'TRỰC TUYÊN';
+  String availabilityTitle = 'TRỰC TUYẾN';
   Color availabilityColor = BrandColors.colorOrange;
 
   bool isAvailable = false;
@@ -112,7 +112,7 @@ class _HomeTabState extends State<HomeTab> {
                   isDismissible: false,
                     context: context,
                     builder: (BuildContext context) => ConfirmSheet(
-                      title: (!isAvailable) ? 'TRỰC TUYẾN' : 'NGOẠI TUYÊN',
+                      title: (!isAvailable) ? 'TRỰC TUYẾN' : 'NGOẠI TUYẾN',
                       subtitle: (!isAvailable) ? 'Bạn sẽ nhập được thông báo yêu cầu chuyến xe gần đây': 'Bạn sẽ không nhận được thông báo yêu cầu chuyến xe',
 
                       onPressed: (){

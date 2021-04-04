@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 SizedBox(height: 40,),
 
-                Text('Ứng dụng đăng nhập cho tài xế',
+                Text('Ứng dụng cho tài xế',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 25, fontFamily: 'Lexend-Bold'),
                 ),

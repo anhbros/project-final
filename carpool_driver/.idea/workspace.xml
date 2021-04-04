@@ -20,17 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b502aa3b-f62a-443e-907f-d4fed80b8964" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/mainpage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../carpool/lib/widgets/NoDriverDialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../carpool/lib/widgets/TaxiOutlineButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/support/FireHelper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/support/FireHelper.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../driver-carpool/New Text Document.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tabs/hometab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tabs/hometab.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +55,7 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -84,15 +90,36 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1736" height="866" key="AVDManager" timestamp="1617558896737">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="92" y="92" width="1736" height="866" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1617558896737" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1617558926191">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1617558926191" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1617558926190">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1617558926190" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1617558926190">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1617558926190" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1617558926191">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1617558926191" />
     <state x="440" y="99" key="SettingsEditor" timestamp="1617532324305">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1617532324305" />
-    <state x="666" y="258" width="587" height="534" key="find.popup" timestamp="1617532388828">
+    <state x="666" y="258" width="587" height="534" key="find.popup" timestamp="1617561122449">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="666" y="258" width="587" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617532388828" />
+    <state x="666" y="258" width="587" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617561122449" />
   </component>
 </project>

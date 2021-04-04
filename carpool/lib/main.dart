@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:carpool/dataprovider/AppData.dart';
+import 'package:carpool/globalvariable.dart';
 import 'package:carpool/screens/loginpage.dart';
 import 'package:carpool/screens/mainpage.dart';
 import 'package:carpool/screens/registrationpage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +32,7 @@ Future<void> main() async {
     ),
   );
 
+  currentFirebaseUser = await FirebaseAuth.instance.currentUser();
 
 
   runApp(MyApp());
@@ -48,7 +51,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Lexend-Regular',
           primarySwatch: Colors.blue,
         ),
-        initialRoute : LoginPage.id,
+        initialRoute : (currentFirebaseUser == null) ? LoginPage.id : MainPage.id,
         routes: {
           LoginPage.id : (Context) => LoginPage(),
           RegistrationPage.id :(Context) => RegistrationPage(),

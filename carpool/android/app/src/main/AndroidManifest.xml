@@ -8,6 +8,7 @@
     <application
         android:label="carpool"
         android:icon="@mipmap/ic_launcher">
+        android:name="androidx.multidex.MultiDexApplication" >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
