@@ -8,4 +8,4 @@ String driverFullName = '';
 
 String driverPhoneNumber;
 
-String tripStatusDisplay = 'Driver is Arriving';
+String tripStatusDisplay = 'Tài xế đang đến';

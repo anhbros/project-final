@@ -10,6 +10,7 @@ import 'package:carpool/screens/searchpage.dart';
 import 'package:carpool/support/FireHelper.dart';
 import 'package:carpool/support/HelperMethods.dart';
 import 'package:carpool/widgets/BrandDivider.dart';
+import 'package:carpool/widgets/CollectPaymentDialog.dart';
 import 'package:carpool/widgets/NoDriverDialog.dart';
 import 'package:carpool/widgets/ProgressDialog.dart';
 import 'package:carpool/widgets/TaxiButton.dart';
@@ -61,13 +62,13 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   List<NearbyDriver> availableDrivers;
 
   bool nearbyDriversKeysLoaded = false;
-
+  bool isRequestingLocationDetails = false;
 
   DirectionDetails tripDirectionDetails;
   bool drawerCanOpen = true;
 
   DatabaseReference rideRef;
-
+  StreamSubscription<Event> rideSubscription;
 
   //get current location
   void setupPositionLocator() async{
@@ -114,6 +115,14 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
   double mapBottomPadding = 0;
 
+
+  showTripSheet(){
+    setState(() {
+      requestingSheetHeight = 0;
+      tripSheetHeight = (Platform.isAndroid) ? 275 : 300;
+      mapBottomPadding = (Platform.isAndroid) ? 280 : 270;
+    });
+  }
 
   void createMarker(){
     if(nearbyIcon == null){
@@ -471,10 +480,10 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                                 appState = 'REQUESTING';
                               });
                                showRequestingSheet();
-                              //
+
                                availableDrivers = FireHelper.nearbyDriverList;
-                              //
-                              // findDriver();
+
+                               findDriver();
 
                             },
                           ),
@@ -574,6 +583,143 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                 ),
               ),
             ),
+
+
+            /// Trip Sheet
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: AnimatedSize(
+                vsync: this,
+                duration: new Duration(milliseconds: 150),
+                curve: Curves.easeIn,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 15.0, // soften the shadow
+                        spreadRadius: 0.5, //extend the shadow
+                        offset: Offset(
+                          0.7, // Move to right 10  horizontally
+                          0.7, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  height: tripSheetHeight,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+
+                        SizedBox(height: 5,),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(tripStatusDisplay,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 18, fontFamily: 'Lexend-Bold'),
+                            ),
+                          ],
+                        ),
+
+                        SizedBox(height: 20,),
+
+                        BrandDivider(),
+
+                        SizedBox(height: 20,),
+
+                        Text(driverCarDetails, style: TextStyle(color: BrandColors.colorTextLight),),
+
+                        Text(driverFullName, style: TextStyle(fontSize: 20),),
+
+                        SizedBox(height: 20,),
+
+                        BrandDivider(),
+
+                        SizedBox(height: 20,),
+
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular((25))),
+                                    border: Border.all(width: 1.0, color: BrandColors.colorTextLight),
+                                  ),
+                                  child: Icon(Icons.call),
+                                ),
+
+                                SizedBox(height: 10,),
+
+                                Text('Gọi'),
+                              ],
+                            ),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular((25))),
+                                    border: Border.all(width: 1.0, color: BrandColors.colorTextLight),
+                                  ),
+                                  child: Icon(Icons.list),
+                                ),
+
+                                SizedBox(height: 10,),
+
+                                Text('Chi tiết'),
+                              ],
+                            ),
+
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular((25))),
+                                    border: Border.all(width: 1.0, color: BrandColors.colorTextLight),
+                                  ),
+                                  child: Icon(OMIcons.clear),
+                                ),
+
+                                SizedBox(height: 10,),
+
+                                Text('Hủy'),
+                              ],
+                            ),
+
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+
 
 
           ],
@@ -805,6 +951,152 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
     rideRef.set(rideMap);
 
+    rideSubscription = rideRef.onValue.listen((event) async {
+
+      //check for null snapshot
+      if(event.snapshot.value == null){
+        return;
+      }
+
+      //get car details
+      if(event.snapshot.value['car_details'] != null){
+        setState(() {
+          driverCarDetails = event.snapshot.value['car_details'].toString();
+        });
+      }
+
+      // get driver name
+      if(event.snapshot.value['driver_name'] != null){
+        setState(() {
+          driverFullName = event.snapshot.value['driver_name'].toString();
+        });
+      }
+
+      // get driver phone number
+      if(event.snapshot.value['driver_phone'] != null){
+        setState(() {
+          driverPhoneNumber = event.snapshot.value['driver_phone'].toString();
+        });
+      }
+
+
+      //get and use driver location updates
+      if(event.snapshot.value['driver_location'] != null){
+
+        double driverLat = double.parse(event.snapshot.value['driver_location']['latitude'].toString());
+        double driverLng = double.parse(event.snapshot.value['driver_location']['longitude'].toString());
+        LatLng driverLocation = LatLng(driverLat, driverLng);
+
+        if(status == 'accepted'){
+          updateToPickup(driverLocation);
+        }
+        else if(status == 'ontrip'){
+          updateToDestination(driverLocation);
+        }
+        else if(status == 'arrived'){
+          setState(() {
+            tripStatusDisplay = 'Tài xế đã tới';
+          });
+        }
+
+      }
+
+
+      if(event.snapshot.value['status'] != null){
+        status = event.snapshot.value['status'].toString();
+      }
+
+      if(status == 'accepted'){
+        showTripSheet();
+        Geofire.stopListener();
+        removeGeofireMarkers();
+      }
+
+      if(status == 'ended'){
+
+        if(event.snapshot.value['fares'] != null) {
+
+          int fares = int.parse(event.snapshot.value['fares'].toString());
+
+          var response = await showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) => CollectPayment(paymentMethod: 'cash', fares: fares,),
+          );
+
+          if(response == 'close'){
+            rideRef.onDisconnect();
+            rideRef = null;
+            rideSubscription.cancel();
+            rideSubscription = null;
+            resetApp();
+          }
+
+        }
+      }
+
+    });
+
+
+  }
+
+
+  void removeGeofireMarkers(){
+    setState(() {
+      _Markers.removeWhere((m) => m.markerId.value.contains('driver'));
+    });
+  }
+
+  void updateToPickup(LatLng driverLocation) async {
+
+    if(!isRequestingLocationDetails){
+
+      isRequestingLocationDetails = true;
+
+      var positionLatLng = LatLng(currentPosition.latitude, currentPosition.longitude);
+
+      var thisDetails = await HelperMethods.getDirectionDetails(driverLocation, positionLatLng);
+
+      if(thisDetails == null){
+        return;
+      }
+
+      setState(() {
+        tripStatusDisplay = 'Tài xế đang tới - ${thisDetails.durationText}';
+      });
+
+      isRequestingLocationDetails = false;
+
+    }
+
+
+  }
+
+  void updateToDestination(LatLng driverLocation) async {
+
+    if(!isRequestingLocationDetails){
+
+      isRequestingLocationDetails = true;
+
+      var destination = Provider.of<AppData>(context, listen: false).destinationAddress;
+
+      var destinationLatLng = LatLng(destination.latitude, destination.longitude);
+
+      var thisDetails = await HelperMethods.getDirectionDetails(driverLocation, destinationLatLng);
+
+      if(thisDetails == null){
+        return;
+      }
+
+      setState(() {
+        tripStatusDisplay = 'Tài xế đang tới điểm đón - ${thisDetails.durationText}';
+      });
+
+      isRequestingLocationDetails = false;
+
+    }
+
+
   }
 
   void cancelRequest(){
@@ -830,11 +1122,11 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
       mapBottomPadding = 280;
       drawerCanOpen = true;
 
-      // status = '';
-      // driverFullName = '';
-      // driverPhoneNumber = '';
-      // driverCarDetails = '';
-      // tripStatusDisplay = 'Driver is Arriving';
+      status = '';
+      driverFullName = '';
+      driverPhoneNumber = '';
+      driverCarDetails = '';
+      tripStatusDisplay = 'Tài xế đang đến';
 
     });
 
