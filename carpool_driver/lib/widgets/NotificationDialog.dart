@@ -112,7 +112,7 @@ class NotificationDialog extends StatelessWidget {
                   Expanded(
                     child: Container(
                       child: TaxiButton(
-                        title: 'CHẤP NHẬN',
+                        title: 'ĐỒNG Ý',
                         color: BrandColors.colorGreen,
                         onPressed: () async {
                           assetsAudioPlayer.stop();
@@ -169,7 +169,7 @@ class NotificationDialog extends StatelessWidget {
         Toast.show("Chuyến đi đã bị hủy", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       }
       else if(thisRideID == 'timeout'){
-        Toast.show("Thời giam chờ chuyến hết hạn", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+        Toast.show("Thời gian chờ chuyến hết hạn", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
       }
       else{
         Toast.show("Không tìm thấy chuyến đi", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);

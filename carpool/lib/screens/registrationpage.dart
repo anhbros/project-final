@@ -43,7 +43,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (BuildContext context) => ProgressDialog(status: 'Registering you...',),
+      builder: (BuildContext context) => ProgressDialog(status: 'Hệ thống đang ghi nhận...',),
     );
 
     //create account when get text from controller

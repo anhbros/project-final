@@ -15,6 +15,8 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+
+
 class NewTripPage extends StatefulWidget {
 
   final TripDetails tripDetails;
@@ -396,7 +398,7 @@ class _NewTripPageState extends State<NewTripPage> {
 
       Polyline polyline = Polyline(
         polylineId: PolylineId('polyid'),
-        color: Color.fromARGB(255, 95, 109, 237),
+        color: Color.fromARGB(255, 110, 164, 236),
         points: polylineCoordinates,
         jointType: JointType.round,
         width: 4,

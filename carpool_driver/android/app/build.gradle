@@ -45,11 +45,14 @@ android {
         }
     }
 }
-dependencies {
-    implementation "androidx.multidex:multidex:2.0.1"
-    implementation "com.google.firebase:firebase-messaging:21.0.1"
-}
 
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation 'com.google.firebase:firebase-messaging:20.2.0'
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
+
 }

@@ -20,13 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b502aa3b-f62a-443e-907f-d4fed80b8964" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../carpool/lib/widgets/CollectPaymentDialog.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/datamodels/Address.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/datamodels/Prediction.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/searchpage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/PredictionTile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/globalvariable.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/rideVariable.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/rideVariable.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/registrationpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/registrationpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/widgets/NoDriverDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/widgets/NoDriverDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/lib/widgets/PredictionTile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/widgets/PredictionTile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/dataprovider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dataprovider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/globalvariabels.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/globalvariabels.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/helpers/helpermethods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/helpermethods.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/pushnotificationservice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/pushnotificationservice.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/newtripspage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/newtripspage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tabs/hometab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tabs/hometab.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +50,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -84,33 +107,44 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="866" key="AVDManager" timestamp="1617558896737">
+    <state x="73" y="63" width="1736" height="866" key="AVDManager" timestamp="1617822448383">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="92" y="92" width="1736" height="866" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1617558896737" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1617562665428">
+    <state x="73" y="63" width="1736" height="866" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1617822448383" />
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1618068824316">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1617562665428" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1617562665427">
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1618068824316" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1618068824300">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1617562665427" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1617562665427">
+    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1618068824300" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1618068824299">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1617562665427" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1617562665427">
+    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1618068824299" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1618068824300">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1617562665427" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1618068824300" />
     <state x="440" y="99" key="SettingsEditor" timestamp="1617532324305">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1617532324305" />
-    <state x="666" y="258" width="587" height="534" key="find.popup" timestamp="1617639975378">
+    <state x="666" y="258" width="587" height="534" key="find.popup" timestamp="1618051126600">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="666" y="258" width="587" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617639975378" />
+    <state x="666" y="258" width="587" height="534" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1618051126600" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/../../New folder/flutter_windows_2.0.3-stable/flutter/.pub-cache/hosted/pub.dartlang.org/google_maps_flutter_platform_interface-1.2.0/lib/src/types/location.dart</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

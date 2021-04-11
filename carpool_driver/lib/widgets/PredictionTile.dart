@@ -1,14 +1,13 @@
-
-import 'package:carpool/brand_colors.dart';
-import 'package:carpool/datamodels/Address.dart';
-import 'package:carpool/datamodels/Prediction.dart';
-import 'package:carpool/dataprovider/AppData.dart';
-import 'package:carpool/support/RequestHelper.dart';
-import 'package:carpool/widgets/ProgressDialog.dart';
+import 'package:carpool_driver/brand_colors.dart';
+import 'package:carpool_driver/datamodels/Address.dart';
+import 'package:carpool_driver/datamodels/Prediction.dart';
+import 'package:carpool_driver/dataprovider.dart';
+import 'package:carpool_driver/helpers/requesthelper.dart';
+import 'package:carpool_driver/widgets/ProgressDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:outline_material_icons/outline_material_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:carpool/globalvariable.dart';
+import 'package:carpool_driver/globalvariabels.dart';
 
 
 class PredictionTile extends StatelessWidget {

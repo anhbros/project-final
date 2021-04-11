@@ -531,17 +531,20 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                         SizedBox(height: 10,),
 
                         SizedBox(
+                          width: double.maxFinite,
+                          child: LinearProgressIndicator(
+                            backgroundColor: BrandColors.colorLightGray,
+                            valueColor: AlwaysStoppedAnimation<Color>(BrandColors.colorTextSemiLight),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+
+                        Container(
                           width: double.infinity,
-                          child: TextLiquidFill(
-                            text: 'Đang tìm kiếm ...',
-                            waveColor: BrandColors.colorTextSemiLight,
-                            boxBackgroundColor: Colors.white,
-                            textStyle: TextStyle(
-                                color: BrandColors.colorText,
-                                fontSize: 24.0,
-                                fontFamily: 'Lexend-Bold'
-                            ),
-                            boxHeight: 40.0,
+                          child: Text(
+                            'Đang tìm kiếm tài xế...',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 18.0 , fontFamily: 'Lexend-Bold',color: BrandColors.colorTextSemiLight),
                           ),
                         ),
 
@@ -737,7 +740,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
     showDialog(
         barrierDismissible: false,
         context: context,
-        builder: (BuildContext context) => ProgressDialog(status: 'Please wait...',)
+        builder: (BuildContext context) => ProgressDialog(status: 'Vui lòng chờ...',)
     );
 
     var thisDetails = await HelperMethods.getDirectionDetails(pickLatLng, destinationLatLng);
@@ -849,9 +852,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
   void startGeofireListener() {
 
-    //search nearby 20km
+    //search nearby 5km
     Geofire.initialize('driversAvailable');
-    Geofire.queryAtLocation(currentPosition.latitude, currentPosition.longitude, 20).listen((map) {
+    Geofire.queryAtLocation(currentPosition.latitude, currentPosition.longitude, 5).listen((map) {
 
       if (map != null) {
         var callBack = map['callBack'];

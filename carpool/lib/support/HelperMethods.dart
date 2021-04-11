@@ -117,7 +117,7 @@ class HelperMethods {
     };
 
     Map notificationMap = {
-      'title': 'NEW TRIP REQUEST',
+      'title': 'YÊU CẦU CHUYẾN XE MỚI',
       'body': 'Destination, ${destination.placeName}'
     };
 

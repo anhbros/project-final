@@ -26,13 +26,13 @@ class NoDriverDialog extends StatelessWidget {
               children: [
                 SizedBox(height: 10,),
 
-                Text('Không tìm thấy tài xê', style: TextStyle(fontSize: 22.0, fontFamily: 'Lexend-Bold'),),
+                Text('Không tìm thấy tài xế', style: TextStyle(fontSize: 22.0, fontFamily: 'Lexend-Bold'),),
 
                 SizedBox(height: 25,),
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text('Không tìm thấy tài xế trong bán kính 20km , bạn cần đến những nơi gần hơn để tìm tài xê', textAlign: TextAlign.center,),
+                  child: Text('Không tìm thấy tài xế trong bán kính 20km , bạn cần đến những nơi gần hơn để tìm tài xế', textAlign: TextAlign.center,),
                 ),
 
                 SizedBox(height: 30,),
