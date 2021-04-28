@@ -32,7 +32,7 @@ class NoDriverDialog extends StatelessWidget {
 
                 Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text('Không tìm thấy tài xế trong bán kính 20km , bạn cần đến những nơi gần hơn để tìm tài xế', textAlign: TextAlign.center,),
+                  child: Text('Không tìm thấy tài xế trong bán kính 5km , bạn cần đến những nơi gần hơn để tìm tài xế', textAlign: TextAlign.center,),
                 ),
 
                 SizedBox(height: 30,),

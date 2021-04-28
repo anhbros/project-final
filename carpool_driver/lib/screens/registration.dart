@@ -99,12 +99,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   alignment: Alignment.center,
                   height: 100.0,
                   width: 100.0,
-                  image: AssetImage('images/carpool.png'),
+                  image: AssetImage('images/car-sharing.png'),
                 ),
 
                 SizedBox(height: 40,),
 
-                Text('Create a Driver\'s Account',
+                Text('Đăng ký tài khoản tài xế',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 25, fontFamily: 'Lexend-Bold'),
                 ),

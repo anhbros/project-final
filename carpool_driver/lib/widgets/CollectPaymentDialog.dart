@@ -40,13 +40,13 @@ class CollectPayment extends StatelessWidget {
 
             SizedBox(height: 16.0,),
 
-            Text('\$$fares', style: TextStyle(fontFamily: 'Lexend-Bold', fontSize: 50),),
+            Text('$fares VND', style: TextStyle(fontFamily: 'Lexend-Bold', fontSize: 50),),
 
             SizedBox(height: 16,),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text('Số tiền phải trả cho hành khách', textAlign: TextAlign.center,),
+              child: Text('Số tiền khách hàng đã trả', textAlign: TextAlign.center,),
             ),
 
             SizedBox(height: 30,),

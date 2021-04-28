@@ -96,7 +96,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   alignment: Alignment.center,
                   height: 100.0,
                   width: 100.0,
-                  image: AssetImage('images/carpool.png'),
+                  image: AssetImage('images/car-sharing.png'),
                 ),
 
                 SizedBox(height: 40,),

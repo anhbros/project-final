@@ -6,14 +6,18 @@ import 'package:carpool/datamodels/DirectionDetails.dart';
 import 'package:carpool/datamodels/NearbyDriver.dart';
 import 'package:carpool/dataprovider/AppData.dart';
 import 'package:carpool/rideVariable.dart';
+import 'package:carpool/screens/loginpage.dart';
 import 'package:carpool/screens/searchpage.dart';
 import 'package:carpool/support/FireHelper.dart';
 import 'package:carpool/support/HelperMethods.dart';
 import 'package:carpool/widgets/BrandDivider.dart';
 import 'package:carpool/widgets/CollectPaymentDialog.dart';
+import 'package:carpool/widgets/ConfirmSheet.dart';
 import 'package:carpool/widgets/NoDriverDialog.dart';
 import 'package:carpool/widgets/ProgressDialog.dart';
 import 'package:carpool/widgets/TaxiButton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -69,6 +73,8 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
 
   DatabaseReference rideRef;
   StreamSubscription<Event> rideSubscription;
+
+  String nameCurrentUser = 'Anh Nguyen';
 
   //get current location
   void setupPositionLocator() async{
@@ -176,7 +182,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text('Anh Nguyen', style: TextStyle(fontSize: 20, fontFamily: 'Lexend-Bold'),),
+                          Text(nameCurrentUser, style: TextStyle(fontSize: 20, fontFamily: 'Lexend-Bold'),),
                           SizedBox(height: 5,),
                           Text('View Profile'),
                         ],
@@ -211,8 +217,24 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
               ),
 
               ListTile(
+                onTap: () {
+                  showModalBottomSheet(
+                    isDismissible: false,
+                    context: context,
+                    builder: (BuildContext context) => ConfirmSheet(
+                      title: 'ĐĂNG XUẤT',
+                      subtitle: 'Bạn có muốn đăng xuất khỏi ứng dụng không?',
+
+                      onPressed: (){
+                        FirebaseAuth.instance.signOut();
+                        Navigator.pushNamedAndRemoveUntil(context, LoginPage.id, (route) => false);
+                      },
+                    ),
+                  );
+
+                },
                 leading: Icon(OMIcons.info),
-                title: Text('About', style: TextStyle(fontSize: 16,),),
+                title: Text('Đăng xuất', style: TextStyle(fontSize: 16,),),
               ),
 
             ],

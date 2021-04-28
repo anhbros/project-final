@@ -87,10 +87,10 @@ class PushNotificationService{
 
       if(snapshot.value != null){
 
-        assetsAudioPlayer.open(
-          Audio('sounds/alert.mp3'),
-        );
-        assetsAudioPlayer.play();
+        // assetsAudioPlayer.open(
+        //   Audio('sounds/alert.mp3'),
+        // );
+        // assetsAudioPlayer.play();
 
         double pickupLat = double.parse(snapshot.value['location']['latitude'].toString());
         double pickupLng = double.parse(snapshot.value['location']['longitude'].toString());
@@ -127,7 +127,7 @@ class PushNotificationService{
           // path.forEach((Point point) {
           //   print(point);
           // });
-          isMappingRequest = PolyUtils.isLocationOnEdgeTolerance(destinationPoint, path, false , 200) && PolyUtils.isLocationOnEdgeTolerance(pickupPoint, path, false , 200);
+          isMappingRequest = PolyUtils.isLocationOnEdgeTolerance(destinationPoint, path, false , 200);
           print("this is my 2 ${isMappingRequest}");
         }
         print("this is my 3 ${isMappingRequest}");

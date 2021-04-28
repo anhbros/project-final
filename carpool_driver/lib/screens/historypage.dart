@@ -15,7 +15,7 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Trip History'),
+        title: Text('Lịch sử chuyến đi'),
         backgroundColor: BrandColors.colorPrimary,
         leading: IconButton(
           onPressed: (){

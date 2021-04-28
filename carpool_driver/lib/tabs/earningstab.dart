@@ -20,7 +20,7 @@ class EarningsTab extends StatelessWidget {
               children: [
 
                 Text('Tổng thu nhập', style: TextStyle(color: Colors.white),),
-                Text('\$${Provider.of<AppData>(context).earnings}', style: TextStyle(color: Colors.white, fontSize: 40, fontFamily: 'Lexend-Bold'),)
+                Text('${Provider.of<AppData>(context).earnings} VND', style: TextStyle(color: Colors.white, fontSize: 40, fontFamily: 'Lexend-Bold'),)
               ],
             ),
           ),

@@ -29,7 +29,7 @@ class HistoryTile extends StatelessWidget {
                     Expanded(child: Container(child: Text(history.pickup, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 18),))),
                     SizedBox(width: 5,),
 
-                    Text('\$${history.fares}', style: TextStyle(fontFamily: 'Lexend-Bold', fontSize: 16, color: BrandColors.colorPrimary),),
+                    Text('${history.fares} VND', style: TextStyle(fontFamily: 'Lexend-Bold', fontSize: 16, color: BrandColors.colorPrimary),),
                   ],
                 ),
               ),

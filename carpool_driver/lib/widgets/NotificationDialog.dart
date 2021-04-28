@@ -100,7 +100,7 @@ class NotificationDialog extends StatelessWidget {
                         title: 'TỪ CHỐI',
                         color: BrandColors.colorPrimary,
                         onPressed: () async {
-                          assetsAudioPlayer.stop();
+                          //assetsAudioPlayer.stop();
                           Navigator.pop(context);
                         },
                       ),
@@ -115,7 +115,7 @@ class NotificationDialog extends StatelessWidget {
                         title: 'ĐỒNG Ý',
                         color: BrandColors.colorGreen,
                         onPressed: () async {
-                          assetsAudioPlayer.stop();
+                         //assetsAudioPlayer.stop();
                           checkAvailablity(context);
                         },
                       ),

@@ -53,7 +53,7 @@ class VehicleInfoPage extends StatelessWidget {
 
               SizedBox(height: 30,),
 
-              Image.asset('images/carpool.png', height: 100, width: 100,),
+              Image.asset('images/car-sharing.png', height: 100, width: 100,),
 
               Padding(
                 padding: EdgeInsets.fromLTRB(20, 20, 20, 30),

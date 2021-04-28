@@ -23,7 +23,7 @@ class TaxiOutlineButton extends StatelessWidget {
           height: 50.0,
           child: Center(
             child: Text(title,
-                style: TextStyle(fontSize: 15.0, fontFamily: 'Brand-Bold', color: BrandColors.colorText)),
+                style: TextStyle(fontSize: 15.0, fontFamily: 'Lexend-Bold', color: BrandColors.colorText)),
           ),
         )
     );
