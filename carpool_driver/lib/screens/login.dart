@@ -46,11 +46,26 @@ class _LoginPageState extends State<LoginPage> {
       email: emailController.text,
       password: passwordController.text,
     ).catchError((ex){
-
-      //check error and display message
+      switch (ex.code.toString()) {
+        case "ERROR_USER_NOT_FOUND":
+          {
+            showSnackBar("Email không xác định , vui lòng nhập lại.");
+            break;
+          }
+        case "ERROR_WRONG_PASSWORD":
+          {
+            showSnackBar("Bạn đã nhập sai mật khẩu , vui lòng nhập lại.");
+            break;
+          }
+        default : {
+          showSnackBar("Thông tin tài khoản của bạn đã bị sai.");
+        }
+      }
       Navigator.pop(context);
-      PlatformException thisEx = ex;
-      showSnackBar(thisEx.message);
+      //check error and display message
+      // Navigator.pop(context);
+      // PlatformException thisEx = ex;
+      // showSnackBar(thisEx.message);
 
     })).user;
 

@@ -20,24 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b502aa3b-f62a-443e-907f-d4fed80b8964" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../carpool/lib/widgets/ConfirmSheet.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/loginpage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/mainpage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/screens/registrationpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/screens/registrationpage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/support/HelperMethods.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/widgets/NoDriverDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/widgets/NoDriverDialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../carpool/lib/widgets/TaxiOutlineButton.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/lib/widgets/TaxiOutlineButton.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carpool/test/estimate_fares_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../carpool/test/estimate_fares_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helpers/pushnotificationservice.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/pushnotificationservice.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/historypage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/historypage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/registration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/registration.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/vehicleinfo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/vehicleinfo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tabs/earningstab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tabs/earningstab.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/tabs/profiletab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tabs/profiletab.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/CollectPaymentDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/CollectPaymentDialog.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/HistoryTile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/HistoryTile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/NotificationDialog.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,34 +93,38 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="53" y="29" width="1736" height="866" key="AVDManager" timestamp="1618753214419">
+    <state x="53" y="29" width="1736" height="866" key="AVDManager" timestamp="1620834446571">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="53" y="29" width="1736" height="866" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1618753214419" />
-    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1619451291741">
+    <state x="53" y="29" width="1736" height="866" key="AVDManager/0.0.1920.1050@0.0.1920.1050" timestamp="1620834446571" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1620925726028">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1619451291741" />
-    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1619451291740">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1620925726028" />
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1620839018295">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1619451291740" />
-    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1619451291738">
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1620839018295" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1620839018294">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1619451291738" />
-    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1619451291740">
+    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1620839018294" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1620839018294">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1619451291740" />
-    <state x="440" y="99" key="SettingsEditor" timestamp="1617532324305">
+    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1620839018294" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1620839018294">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1617532324305" />
-    <state x="666" y="258" width="587" height="596" key="find.popup" timestamp="1619450545277">
+    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1620839018294" />
+    <state x="440" y="99" key="SettingsEditor" timestamp="1620579552939">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="666" y="258" width="587" height="596" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1619450545277" />
+    <state x="440" y="99" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1620579552939" />
+    <state x="666" y="258" width="587" height="596" key="find.popup" timestamp="1620925322283">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="666" y="258" width="587" height="596" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1620925322283" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

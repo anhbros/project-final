@@ -46,12 +46,27 @@ class _LoginPageState extends State<LoginPage> {
       email: emailController.text,
       password: passwordController.text,
     ).catchError((ex){
-
-      //check error and display message
+      print("my error code :" + ex.code.toString());
+      switch (ex.code.toString()) {
+        case "ERROR_USER_NOT_FOUND":
+          {
+            showSnackBar("Email không xác định , vui lòng nhập lại.");
+            break;
+          }
+        case "ERROR_WRONG_PASSWORD":
+          {
+            showSnackBar("Bạn đã nhập sai mật khẩu , vui lòng nhập lại.");
+            break;
+          }
+        default : {
+          showSnackBar("Thông tin tài khoản của bạn đã bị sai.");
+        }
+      }
       Navigator.pop(context);
-      PlatformException thisEx = ex;
-      showSnackBar(thisEx.message);
-
+      //check error and display message
+      //Navigator.pop(context);
+      // PlatformException thisEx = ex;
+      // showSnackBar(thisEx.message);
     })).user;
 
     if(user != null){
@@ -143,17 +158,17 @@ class _LoginPageState extends State<LoginPage> {
 
                           var connectivityResult = await Connectivity().checkConnectivity();
                           if(connectivityResult != ConnectivityResult.mobile && connectivityResult != ConnectivityResult.wifi){
-                            showSnackBar('Không có kết nối internet');
+                            showSnackBar('Không có kết nối internet.');
                             return;
                           }
 
                           if(!emailController.text.contains('@')){
-                            showSnackBar('Vui lòng nhập đúng định dạng mail');
+                            showSnackBar('Vui lòng nhập đúng định dạng email.');
                             return;
                           }
 
                           if(passwordController.text.length < 8){
-                            showSnackBar('Vui lòng không bỏ trống password');
+                            showSnackBar('Mật khẩu có độ dài không được nhỏ hơn 8 ký tự.');
                             return;
                           }
 

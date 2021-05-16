@@ -45,7 +45,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (BuildContext context) => ProgressDialog(status: 'Đang đăng ký...',),
+      builder: (BuildContext context) => ProgressDialog(status: 'Hệ thống đang ghi nhận...',),
     );
 
     final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
@@ -77,7 +77,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
       currentFirebaseUser = user;
 
-      //Take the user to the mainPage
+      //Take the user to the register info vehicle
       Navigator.pushNamed(context, VehicleInfoPage.id);
 
     }

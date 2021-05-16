@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:carpool/brand_colors.dart';
 import 'package:carpool/datamodels/DirectionDetails.dart';
 import 'package:carpool/datamodels/NearbyDriver.dart';
+import 'package:carpool/datamodels/User.dart';
 import 'package:carpool/dataprovider/AppData.dart';
 import 'package:carpool/rideVariable.dart';
 import 'package:carpool/screens/loginpage.dart';
@@ -62,7 +63,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   Position currentPosition;
 
   String appState = 'NORMAL';
-
+  String fullName = '';
   List<NearbyDriver> availableDrivers;
 
   bool nearbyDriversKeysLoaded = false;
@@ -74,7 +75,6 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
   DatabaseReference rideRef;
   StreamSubscription<Event> rideSubscription;
 
-  String nameCurrentUser = 'Anh Nguyen';
 
   //get current location
   void setupPositionLocator() async{
@@ -144,18 +144,33 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
     }
   }
 
+  void getCurrentUserInfo() async{
+
+    currentFirebaseUser = await FirebaseAuth.instance.currentUser();
+    String userId = currentFirebaseUser.uid;
+
+    DatabaseReference userRef = FirebaseDatabase.instance.reference().child('users/$userId');
+    userRef.once().then((DataSnapshot snapshot){
+
+      if(snapshot.value != null && currentUserInfo != null){
+        currentUserInfo = User.fromSnapshot(snapshot);
+        fullName = currentUserInfo.fullName;
+      }
+    });
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    HelperMethods.getCurrentUserInfo();
+    getCurrentUserInfo();
   }
 
 
   @override
   Widget build(BuildContext context) {
     createMarker();
-
+    print("my user : " + fullName);
     return Scaffold(
       key: scaffoldKey,
       drawer: Container(
@@ -182,7 +197,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin{
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(nameCurrentUser, style: TextStyle(fontSize: 20, fontFamily: 'Lexend-Bold'),),
+                          Text(fullName, style: TextStyle(fontSize: 20, fontFamily: 'Lexend-Bold'),),
                           SizedBox(height: 5,),
                           Text('View Profile'),
                         ],
